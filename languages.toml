@@ -30,6 +30,17 @@ formatter = { command = 'prettier', args = ["--parser", "json"] }
 name = "css"
 formatter = { command = 'prettier', args = ["--parser", "css"] }
 
+
+[[language]]
+name = "jsx"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
 [[language]]
 name = "javascript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
