@@ -1,56 +1,3 @@
-# [language-server.eslint]
-# args = ["--stdio"]
-# command = "vscode-eslint-language-server"
-
-# [language-server.eslint.config]
-# format = true
-# nodePath = ""
-# onIgnoredFiles = "off"
-# packageManager = "yarn"
-# quiet = false
-# rulesCustomizations = []
-# run = "onType"
-# useESLintClass = false
-# validate = "on"
-# codeAction = { disableRuleComment = { enable = true, location = "separateLine" }, showDocumentation = { enable = true } }
-# codeActionOnSave = { mode = "all" }
-# experimental = { }
-# problems = { shortenToSingleLine = false }
-# workingDirectory = { mode = "auto" }
-
-# [[language]]
-# name = "html"
-# formatter = { command = 'prettier', args = ["--parser", "html"] }
-
-# [[language]]
-# name = "json"
-# formatter = { command = 'prettier', args = ["--parser", "json"] }
-
-# [[language]]
-# name = "css"
-# formatter = { command = 'prettier', args = ["--parser", "css"] }
-
-
-# [[language]]
-# name = "jsx"
-# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-# auto-format = true
-
-# [[language]]
-# name = "tsx"
-# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-# auto-format = true
-
-# [[language]]
-# name = "javascript"
-# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-# auto-format = true
-
-# [[language]]
-# name = "typescript"
-# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-# auto-format = true
-
 [[language]]
 language-servers = [{except-features = ["format"], name = "typescript-language-server"}, {name = "efm-lsp-prettier", only-features = ["format"]}, "eslint"]
 name = "typescript"
@@ -127,10 +74,6 @@ location = "separateLine"
 
 [language-server.eslint.config.codeAction.showDocumentation]
 enable = true
-
-# [language-server.eslint.config.codeActionOnSave]
-# enable = true
-# mode = "all"
 
 [language-server.eslint.config.workingDirectory]
 mode = "location"
