@@ -18,4 +18,3 @@ C = ":bca!"
 
 [editor.cursor-shape]
 insert = "bar"
-

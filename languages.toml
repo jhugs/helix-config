@@ -1,89 +1,57 @@
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ['--stdio']
+
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ['--stdio']
+
+[language-server.solargraph.config]
+diagnostics = true
+formatting = false
+
+[language-server.eslint.config]
+codeActionOnSave = { mode = "all", "source.fixAll.eslint" = true}
+experimental = {}
+format = {enable = true}
+nodePath = ""
+onIgnoredFiles = "off"
+packageManager = "yarn"
+problems = { shortenToSingleLine = false}
+quiet = false
+rulesCustomizations = []
+run = "onType"
+validate = "on"
+
+[language-server.eslint.config.codeAction]
+disableRuleAction = {enable = true, location = "separateLine"}
+showDocumentation = { enable = false}
+
 [[language]]
-language-servers = [{except-features = ["format"], name = "typescript-language-server"}, {name = "efm-lsp-prettier", only-features = ["format"]}, "eslint"]
+language-servers = ['eslint','typescript-language-server', 'emmet-lsp']
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
 name = "typescript"
 auto-format = true
 
 [[language]]
-language-servers = [{except-features = ["format"], name = "typescript-language-server"}, {name = "efm-lsp-prettier", only-features = ["format"]}, "eslint"]
+language-servers = ['eslint', 'typescript-language-server', 'emmet-lsp']
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
 name = "javascript"
 auto-format = true
 
 [[language]]
-language-servers = [{except-features = ["format"], name = "typescript-language-server"}, {name = "efm-lsp-prettier", only-features = ["format"]}, "eslint"]
+language-servers = ['emmet-lsp', 'eslint', 'typescript-language-server']
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
 name = "jsx"
 auto-format = true
 
 [[language]]
-language-servers = [{except-features = ["format"], name = "typescript-language-server"}, {name = "efm-lsp-prettier", only-features = ["format"]}, "eslint"]
+language-servers = ['emmet-lsp', 'eslint', 'typescript-language-server']
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
 name = "tsx"
 auto-format = true
 
 [[language]]
 name = "ruby"
+formatter = { command = "bundle", args = ["exec", "rubocop", "--stdin", "foo.rb", "-a", "--stderr", "--fail-level", "fatal"] }
 auto-format = true
-formatter = { command = "rubocop", args = ["--stdin", "%", "-a", "--stderr", "--fail-level", "fatal"] }
-
-[language-server]
-[language-server.efm-lsp-prettier]
-command = "efm-langserver"
-
-[language-server.efm-lsp-prettier.config]
-documentFormatting = true
-
-[language-server.efm-lsp-prettier.config.languages]
-[[language-server.efm-lsp-prettier.config.languages.javascript]]
-formatCommand = "$(\n                      if [ -z \"$(command -v ${ROOT}/node_modules/.bin/prettier)\" ]; then\n                        echo prettier;\n                      else\n                        echo ${ROOT}/node_modules/.bin/prettier;\n                      fi\n                    ) --stdin-filepath ${INPUT}"
-formatStdin = true
-
-[[language-server.efm-lsp-prettier.config.languages.javascriptreact]]
-formatCommand = "$(\n                      if [ -z \"$(command -v ${ROOT}/node_modules/.bin/prettier)\" ]; then\n                        echo prettier;\n                      else\n                        echo ${ROOT}/node_modules/.bin/prettier;\n                      fi\n                    ) --stdin-filepath ${INPUT}"
-formatStdin = true
-
-[[language-server.efm-lsp-prettier.config.languages.typescript]]
-formatCommand = "$(\n                      if [ -z \"$(command -v ${ROOT}/node_modules/.bin/prettier)\" ]; then\n                        echo prettier;\n                      else\n                        echo ${ROOT}/node_modules/.bin/prettier;\n                      fi\n                    ) --stdin-filepath ${INPUT}"
-formatStdin = true
-
-[[language-server.efm-lsp-prettier.config.languages.typescriptreact]]
-formatCommand = "$(\n                      if [ -z \"$(command -v ${ROOT}/node_modules/.bin/prettier)\" ]; then\n                        echo prettier;\n                      else\n                        echo ${ROOT}/node_modules/.bin/prettier;\n                      fi\n                    ) --stdin-filepath ${INPUT}"
-formatStdin = true
-
-[[language-server.efm-lsp-prettier.config.languages.vue]]
-formatCommand = "$(\n                      if [ -z \"$(command -v ${ROOT}/node_modules/.bin/prettier)\" ]; then\n                        echo prettier;\n                      else\n                        echo ${ROOT}/node_modules/.bin/prettier;\n                      fi\n                    ) --stdin-filepath ${INPUT}"
-formatStdin = true
-
-[language-server.eslint]
-args = ["--stdio"]
-command = "vscode-eslint-language-server"
-
-[language-server.eslint.config]
-format = true
-nodePath = ""
-onIgnoredFiles = "off"
-packageManager = "yarn"
-quiet = false
-rulesCustomizations = []
-run = "onType"
-codeActionOnSave = { mode = "all" }
-useESLintClass = false
-validate = "on"
-
-[language-server.eslint.config.codeAction]
-[language-server.eslint.config.codeAction.disableRuleComment]
-enable = true
-location = "separateLine"
-
-[language-server.eslint.config.codeAction.showDocumentation]
-enable = true
-
-[language-server.eslint.config.workingDirectory]
-mode = "location"
-
-[language-server.typescript-language-server]
-args = ["--stdio"]
-command = "typescript-language-server"
-
-[language-server.typescript-language-server.config]
-documentFormatting = false
-
-[language-server.solargraph.config.solargraph]
-diagnostics = true
